@@ -689,11 +689,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\Entities\\Entities.csproj",
+      "projectUniqueName": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\Entities\\Entities.csproj",
+      "projectPath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\Entities\\Entities.csproj",
       "packagesPath": "C:\\Users\\ademk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\Entities\\obj\\",
+      "outputPath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

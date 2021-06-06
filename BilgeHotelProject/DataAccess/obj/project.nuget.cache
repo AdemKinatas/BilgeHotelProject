@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fZUIo2ccDOWhTJUqwbv/8Kv82Q31+frqTdd1wFztietQPmUUKSEBspE/Nlb9RfOtBQAMDYkFto0JjdAgGJWN5A==",
+  "dgSpecHash": "peBKaT1atNFQ+MEjjnxX756ZHZ8+BdhqC2NwnyVBXEjqLAOCGdsqrDoIoTKz2DKwPsfEBHi+lN/NSKc9Vbwgyw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ademk\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ademk\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",

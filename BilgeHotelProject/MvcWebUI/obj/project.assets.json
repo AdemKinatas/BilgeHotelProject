@@ -9470,11 +9470,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\MvcWebUI\\MvcWebUI.csproj",
+      "projectUniqueName": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\MvcWebUI\\MvcWebUI.csproj",
       "projectName": "MvcWebUI",
-      "projectPath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\MvcWebUI\\MvcWebUI.csproj",
+      "projectPath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\MvcWebUI\\MvcWebUI.csproj",
       "packagesPath": "C:\\Users\\ademk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\MvcWebUI\\obj\\",
+      "outputPath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\MvcWebUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -9495,11 +9495,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\Business\\Business.csproj": {
-              "projectPath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\Business\\Business.csproj"
+            "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\Business\\Business.csproj"
             },
-            "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\DataAccess\\DataAccess.csproj"
             }
           }
         }

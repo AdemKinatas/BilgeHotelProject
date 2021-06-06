@@ -7508,11 +7508,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\ademk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -7533,8 +7533,8 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\Entities\\Entities.csproj"
+            "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\Entities\\Entities.csproj"
             }
           }
         }

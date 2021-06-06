@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D/tAas68DKNdyRTOhTUzX6DOikUJRPWdvXjd0VF3J4Yf97hC3GLJdPySNkAoyEGVWVMPC8K/6NT+u0KYfIGaww==",
+  "dgSpecHash": "5MzfDc9fxtp09pcuVvx1UVJxwPbCVP/gUstF2tzgapcuq4a+KJFgJW2hjIMizXtMlk2P5pNZZM4RB3f2fxse+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\MvcWebUI\\MvcWebUI.csproj",
+  "projectFilePath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\MvcWebUI\\MvcWebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ademk\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
     "C:\\Users\\ademk\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",

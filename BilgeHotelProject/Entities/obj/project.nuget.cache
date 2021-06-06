@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gv3P8zBnQrAYZQvw1Kd0t7QjmdZeheFgn1s6WZvqm93LOxWIfGx+pVRwRiHYKMnzJonoL2NXkfWJdknh5Vm/Mg==",
+  "dgSpecHash": "aQELqqvYpr6tyhd7sM5ZxhVEDykTb38v3yM6Uba56uKW4hfkxmhF8lAJlhbLJCSSDiBSCDM1eXLDndGlhC2nJg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ademk\\OneDrive\\Masaüstü\\BilgeHotelProject\\Entities\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\ademk\\OneDrive\\Belgeler\\GitHub\\BilgeHotelProject\\BilgeHotelProject\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ademk\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",
     "C:\\Users\\ademk\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.6\\microsoft.aspnetcore.cryptography.keyderivation.5.0.6.nupkg.sha512",
