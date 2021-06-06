@@ -35,15 +35,15 @@ namespace DataAccess.Concrete.EntityFrameworkCore.SeedData
                 await roleManager.CreateAsync(new AppRole { Name = "Member" });
             }
 
-            var adminUser = await userManager.FindByNameAsync("adem");
+            var adminUser = await userManager.FindByNameAsync("admin");
             if (adminUser == null)
             {
                 AppUser user = new AppUser
                 {
-                    UserName = "adem",
-                    FirstName = "Adem",
-                    LastName = "Kınataş",
-                    Email = "adem@kinatas.com"
+                    UserName = "admin",
+                    FirstName = "Bilge",
+                    LastName = "Hotel",
+                    Email = "bilge@hotel.com"
                 };
 
                 await userManager.CreateAsync(user, "Test123+");
@@ -80,12 +80,12 @@ namespace DataAccess.Concrete.EntityFrameworkCore.SeedData
                 await userManager.AddToRoleAsync(user, "HumanResources");
             }
 
-            var memberUser = await userManager.FindByNameAsync("aliveli");
+            var memberUser = await userManager.FindByNameAsync("member");
             if (memberUser == null)
             {
                 AppUser user = new AppUser
                 {
-                    UserName = "aliveli",
+                    UserName = "member",
                     FirstName = "Ali",
                     LastName = "Veli",
                     Email = "ali@veli.com"

@@ -64,33 +64,33 @@
                     @foreach (var roomType in Model.RoomTypes)
                     {
                         var url = "";
-                        <form asp-action="GetAvailableRooms" asp-controller="Booking" method="post">
-                            <div class="item">
-                                @foreach (var roomTypeImage in Model.RoomTypeImages)
+                        <div class="item">
+                            @foreach (var roomTypeImage in Model.RoomTypeImages)
+                            {
+                                if (roomType.ID == roomTypeImage.RoomTypeId)
                                 {
-                                    if (roomType.ID == roomTypeImage.RoomTypeId)
-                                    {
-                                        url = roomTypeImage.ImageUrl;
-                                        break;
-                                    }
+                                    url = roomTypeImage.ImageUrl;
+                                    break;
                                 }
-                                <div class="recent-post" style="background-image:url('../Images/RoomTypeImages/@url')">
-                                    <div class="hovereffect">
-                                        <a href="#">
-                                            <div class="overlay ">
-                                                <div class="content">
-                                                    <div class="heading">
-                                                        @roomType.RoomTypeName
-                                                        <span class="devider-recent"></span>
-                                                    </div>
-                                                    <div class="subheading">Gecelik Fiyat : @roomType.BasePrice ₺</div>
-
-
+                            }
+                            <div class="recent-post" style="background-image:url('../Images/RoomTypeImages/@url')">
+                                <div class="hovereffect">
+                                    <a href="#">
+                                        <div class="overlay ">
+                                            <div class="content">
+                                                <div class="heading">
+                                                    @roomType.RoomTypeName
+                                                    <span class="devider-recent"></span>
                                                 </div>
+                                                <div class="subheading">Gecelik Fiyat : @roomType.BasePrice ₺</div>
+
+
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
+                            </div>
+                            <form asp-action="GetAvailableRooms" asp-controller="Booking" method="post" style="text-align:center;margin-top:5px;">
                                 <div class="form-group">
                                     <input hidden name="RoomTypeId" value="@roomType.ID" />
                                     <label>Rezervasyon Başlangıç :</label>
@@ -108,8 +108,8 @@
                                 {
                                     <a asp-action="Login" asp-controller="Account" asp-route-roomTypeId="@roomType.ID" class="btn btn-primary">Müsait Odaları Gör</a>
                                 }
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     }
                 </div>
             </div>

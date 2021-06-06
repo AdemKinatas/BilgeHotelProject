@@ -42,3 +42,17 @@ C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\Business\obj\Debug\netstand
 C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.csproj.CopyComplete
 C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.dll
 C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.pdb
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\bin\Debug\netstandard2.1\Business.deps.json
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\bin\Debug\netstandard2.1\Business.dll
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\bin\Debug\netstandard2.1\Business.pdb
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\bin\Debug\netstandard2.1\DataAccess.dll
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\bin\Debug\netstandard2.1\Entities.dll
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\bin\Debug\netstandard2.1\DataAccess.pdb
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\bin\Debug\netstandard2.1\Entities.pdb
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.csproj.AssemblyReference.cache
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.AssemblyInfoInputs.cache
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.AssemblyInfo.cs
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.csproj.CoreCompileInputs.cache
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.csproj.CopyComplete
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.dll
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Business\obj\Debug\netstandard2.1\Business.pdb

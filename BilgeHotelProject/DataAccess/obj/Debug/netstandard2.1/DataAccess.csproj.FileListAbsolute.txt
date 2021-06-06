@@ -36,3 +36,15 @@ C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\DataAccess\obj\Debug\netsta
 C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.csproj.CopyComplete
 C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.dll
 C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.pdb
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\bin\Debug\netstandard2.1\DataAccess.deps.json
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\bin\Debug\netstandard2.1\DataAccess.dll
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\bin\Debug\netstandard2.1\DataAccess.pdb
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\bin\Debug\netstandard2.1\Entities.dll
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\bin\Debug\netstandard2.1\Entities.pdb
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.csproj.AssemblyReference.cache
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.AssemblyInfoInputs.cache
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.AssemblyInfo.cs
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.csproj.CopyComplete
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.dll
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.pdb
