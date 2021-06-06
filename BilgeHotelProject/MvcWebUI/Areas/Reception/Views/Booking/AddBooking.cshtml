@@ -1,0 +1,77 @@
+﻿@model Booking
+
+@{
+    ViewData["Title"] = "AddBooking";
+    Layout = "~/Areas/Reception/Views/Shared/_ReceptionLayout.cshtml";
+
+    var bookingFrom = Model.BookingFrom;
+    var bookingTo = Model.BookingTo;
+} 
+
+
+<form asp-action="AddBooking" class="w-75 mx-auto p-3" method="post">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomId">Oda Seçiniz :</label>
+        <span asp-validation-for="RoomId" class="text-danger"></span>
+        <select asp-for="RoomId" class="form-control" asp-items="ViewBag.Rooms">
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PersonName">Misafir Adı :</label>
+        <span asp-validation-for="PersonName" class="text-danger"></span>
+        <input asp-for="PersonName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PersonLastName">Misafir Soyadı :</label>
+        <span asp-validation-for="PersonLastName" class="text-danger"></span>
+        <input asp-for="PersonLastName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Misafir E-Mail :</label>
+        <span asp-validation-for="Email" class="text-danger"></span>
+        <input asp-for="Email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber">Misafir Telefon No :</label>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        <input asp-for="PhoneNumber" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input hidden name="BookingFrom" value="@bookingFrom" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input hidden name="BookingTo" value="@bookingTo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NoOfGuests">Misafir Sayısı :</label>
+        <span asp-validation-for="NoOfGuests" class="text-danger"></span>
+        <select asp-for="NoOfGuests" type="number" class="form-control">
+            <option value="-1">Seçiniz</option>
+            @for (int i = 1; i <= Model.NoOfGuests; i++)
+            {
+                <option>@i</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingPackageId">Konaklama Paketi Seçiniz :</label>
+        <span asp-validation-for="BookingPackage" class="text-danger"></span>
+        <select asp-for="BookingPackageId" class="form-control" asp-items="ViewBag.BookingPackages">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>
+
+
+@section scripts{
+    <script>
+
+    </script>
+}
+

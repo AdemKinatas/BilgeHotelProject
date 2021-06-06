@@ -1,0 +1,54 @@
+﻿@model PayrollForWorker
+
+@{
+    ViewData["Title"] = "UpdatePayrollForWorker";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form asp-action="UpdatePayrollForWorker" class="w-75 mx-auto p-3" method="post">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="form-group">
+        <label asp-for="WorkerId">Çalışan Seçiniz :</label>
+        <span asp-validation-for="WorkerId" class="text-danger"></span>
+        <select asp-for="WorkerId" class="form-control" asp-items="ViewBag.Workers">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="SalaryDate">Maaş Tarihi :</label>
+        <span asp-validation-for="SalaryDate" class="text-danger"></span>
+        <input asp-for="SalaryDate" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Açıklama :</label>
+        <span asp-validation-for="Description" class="text-danger"></span>
+        <input asp-for="Description" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="HourlyFee">Saatlik Ücreti :</label>
+        <span asp-validation-for="HourlyFee" class="text-danger"></span>
+        <input asp-for="HourlyFee" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DailyWorkingHours">Günlük Çalışma Süresi(Saat) :</label>
+        <span asp-validation-for="DailyWorkingHours" class="text-danger"></span>
+        <input asp-for="DailyWorkingHours" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TotalWorkingDaysPerMonth">Aylık Çalışma Süresi(Gün) :</label>
+        <span asp-validation-for="TotalWorkingDaysPerMonth" class="text-danger"></span>
+        <input asp-for="TotalWorkingDaysPerMonth" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Overtime">Aylık Ek Mesai Süresi(Saat) :</label>
+        <span asp-validation-for="Overtime" class="text-danger"></span>
+        <input asp-for="Overtime" type="number" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>
+

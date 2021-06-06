@@ -1,0 +1,62 @@
+﻿
+@model UserForRegisterDto
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section aria-label="home" class="mainbg-1" id="home">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <div class="account-wall">
+                    <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                         alt="">
+                    <form asp-action="Login" class="form-signin" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger">
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.UserName">Kullanıcı Adı:</label>
+                            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                            <input asp-for="@Model.UserName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.FirstName">Adınız :</label>
+                            <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                            <input asp-for="@Model.FirstName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.LastName">Soyadınız :</label>
+                            <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+                            <input asp-for="@Model.LastName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Email">Email :</label>
+                            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                            <input asp-for="@Model.Email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Password">Parola :</label>
+                            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                            <input type="password" asp-for="@Model.Password" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.PasswordAgain">Parola Tekrar:</label>
+                            <span asp-validation-for="@Model.PasswordAgain" class="text-danger"></span>
+                            <input type="password" asp-for="@Model.PasswordAgain" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+                <a asp-action="Login" asp-controller="Account" class="btn btn-info text-center new-account">Giriş Yap</a>
+                <a asp-action="Index" asp-controller="Home" class="btn btn-danger text-center new-account">Vazgeç</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+

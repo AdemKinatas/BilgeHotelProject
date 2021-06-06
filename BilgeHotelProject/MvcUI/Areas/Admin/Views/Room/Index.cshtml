@@ -1,0 +1,91 @@
+﻿@model RoomListDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model.Rooms.Count != 0)
+{
+    <a asp-action="AddRoom" asp-controller="Room" class="btn btn-sm btn-outline-dark my-2"> <i class="fas fa-plus-circle mr-2"></i> Oda Ekle</a>
+
+    <table class="table table-sm table-hover mx-auto">
+        <thead>
+            <tr>
+                <th>Oda No</th>
+                <th>Kat No</th>
+                <th>Kapasite</th>
+                <th>Açıklama</th>
+                <th>Özellikleri</th>
+                <th>Oda Tipi</th>
+                <th>Durumu</th>
+                <th>Fotoğraflar</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var room in Model.Rooms)
+            {
+                <tr>
+                    <td>@room.RoomNumber</td>
+                    <td>@room.FloorNumber</td>
+                    <td>@room.Capacity</td>
+                    <td>@room.RoomDescription</td>
+                    <td>@room.RoomFeatures</td>
+                    <td>
+                        @if (Model.RoomTypes != null)
+                        {
+                            foreach (var roomType in Model.RoomTypes)
+                            {
+                                if (room.RoomTypeId == roomType.ID)
+                                {
+                                    @roomType.RoomTypeName
+                                }
+                            }
+                        }
+                    </td>
+                    <td>
+                        @if (Model.RoomStatuses != null)
+                        {
+                            foreach (var roomStatus in Model.RoomStatuses)
+                            {
+                                if (room.RoomStatusId == roomStatus.ID)
+                                {
+                                    @roomStatus.RoomStatusName
+                                }
+                            }
+                        }
+                    </td>
+                    <td>
+                        @if (Model.RoomImages != null)
+                        {
+                            foreach (var roomImage in Model.RoomImages)
+                            {
+                                if (roomImage.RoomId == room.ID)
+                                {
+                                    <img src="~/Images/RoomImages/@roomImage.ImageUrl" width="50" height="50" />
+                                }
+                            }
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="UpdateRoom" asp-controller="Room" asp-route-id="@room.ID" class="btn btn-warning btn-sm"><i class="far fa-edit mr-2"></i>Düzenle</a>
+                        <a asp-action="DeleteRoom" asp-controller="Room" asp-route-id="@room.ID" class="btn btn-danger btn-sm"><i class="far fa-edit mr-2"></i>Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Kayıtlı Oda Bulunamadı!
+        </p>
+        <a asp-action="AddRoom" asp-controller="Room" class="btn btn-sm btn-info my-2">Oda Tipi Ekle</a>
+    </div>
+}
+
+
+

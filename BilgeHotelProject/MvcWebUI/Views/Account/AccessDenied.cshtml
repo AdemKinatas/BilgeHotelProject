@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "AccessDenied";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section aria-label="home" class="mainbg-1" id="home">
+    <div class="container" style="padding-top:250px;">
+        <div class="row">
+            <div class="container text-center">
+                <h1>Bu sayfaya ulaşma yetkiniz bulunmuyor.</h1>
+                <a asp-action="Index" asp-controller="Home" class="btn btn-danger btn-sm">Ana Sayfaya dön!</a>
+                <a asp-action="Login" asp-controller="Account" class="btn btn-info btn-sm">Yetkili bir hesapla giriş yap!</a>
+            </div>
+        </div>
+    </div>
+ </section>
+
+
+

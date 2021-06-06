@@ -1,0 +1,90 @@
+﻿@model List<Manager>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@if (Model.Count != 0)
+{
+    <main>
+        <div class="card mb-4">
+            <div class="card-header">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <i class="fas fa-table mr-1"></i>
+                Yöneticiler <br />
+                <a asp-action="AddManager" asp-controller="Manager" class="btn btn-sm btn-outline-dark my-2"> <i class="fas fa-plus-circle mr-2"></i>Çalışan Ekle</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Kimlik No</th>
+                                <th>Adı</th>
+                                <th>Soyadı</th>
+                                <th>Telefon No.</th>
+                                <th>Adres</th>
+                                <th>Görevi</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Kimlik No</th>
+                                <th>Adı</th>
+                                <th>Soyadı</th>
+                                <th>Telefon No.</th>
+                                <th>Adres</th>
+                                <th>Görevi</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var manager in Model)
+                            {
+                                <tr>
+                                    <td>@manager.NationalIdentificationNumber</td>
+                                    <td>@manager.FirstName</td>
+                                    <td>@manager.LastName</td>
+                                    <td>@manager.PhoneNumber</td>
+                                    <td>@manager.Address</td>
+                                    <td>
+                                        @if (ViewBag.Duties != null)
+                                        {
+                                            foreach (var duty in ViewBag.Duties as List<Duty>)
+                                            {
+                                                if (manager.DutyId == duty.ID)
+                                                {
+                                                    @duty.DutyName
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        <a asp-action="UpdateManager" asp-controller="Manager" asp-route-id="@manager.ID" class="btn btn-warning btn-sm"><i class="far fa-edit mr-2"></i>Düzenle</a>
+                                        <a asp-action="DeleteManager" asp-controller="Manager" asp-route-id="@manager.ID" class="btn btn-danger btn-sm"><i class="far fa-edit mr-2"></i>Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Kayıtlı Yönetici Bulunamadı!
+        </p>
+        <a asp-action="AddManager" asp-controller="Manager" class="btn btn-sm btn-outline-dark my-2"> <i class="fas fa-plus-circle mr-2"></i>Yönetici Ekle</a>
+    </div>
+}

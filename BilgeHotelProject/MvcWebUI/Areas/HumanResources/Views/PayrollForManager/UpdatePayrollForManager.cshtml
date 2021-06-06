@@ -1,0 +1,38 @@
+﻿@model PayrollForManager
+
+@{
+    ViewData["Title"] = "UpdatePayrollForManager";
+    Layout = "~/Areas/HumanResources/Views/Shared/_HumanResourcesLayout.cshtml";
+}
+
+
+<form asp-action="UpdatePayrollForManager" class="w-75 mx-auto p-3" method="post">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="form-group">
+        <label asp-for="ManagerId">Çalışan Seçiniz :</label>
+        <span asp-validation-for="ManagerId" class="text-danger"></span>
+        <select asp-for="ManagerId" class="form-control" asp-items="ViewBag.Managers">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="SalaryDate">Maaş Tarihi :</label>
+        <span asp-validation-for="SalaryDate" class="text-danger"></span>
+        <input asp-for="SalaryDate" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Açıklama :</label>
+        <span asp-validation-for="Description" class="text-danger"></span>
+        <input asp-for="Description" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary">Maaş :</label>
+        <span asp-validation-for="Salary" class="text-danger"></span>
+        <input asp-for="Salary" type="number" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>

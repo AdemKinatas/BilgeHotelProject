@@ -1,0 +1,239 @@
+﻿@model Booking
+
+@{
+    ViewData["Title"] = "GetAvailableRooms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var lists = ViewBag.RoomFilterListDto as RoomFilterListDto;
+}
+
+
+<!-- subheader -->
+<section id="subheader">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    Müsait Odalar
+                </h1>
+            </div>
+
+            <!-- devider -->
+            <div class="col-md-12">
+                <div class="devider-page">
+                    <div class="devider-img-right">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <ul class="subdetail">
+                    <li>
+                        <a asp-action="Index" asp-controller="Home">Home</a>
+                    </li>
+
+                    <li class="sep">
+                        /
+                    </li>
+
+                    <li>
+                        Oda Detayları
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- subheader end -->
+
+@if (lists.Rooms.Count != 0)
+{
+
+    <!-- services -->
+    <section class="room-detail whitepage">
+        <div class="onStep" data-animation="fadeInUp" data-time="300">
+            <div class="container">
+                @foreach (var room in lists.Rooms)
+                {
+                    <div class="row text-center">
+                        <!-- text detail -->
+                        <div class="col-md-4">
+                            <div class="detaillist">
+                                <h2>@lists.RoomType.RoomTypeName</h2>
+                                <h2>Oda Numarası : @room.RoomNumber</h2>
+                                <div class="devider-rooms-detail"></div>
+                                <div class="space-single"></div>
+                                <h4>
+                                    @room.RoomDescription
+                                </h4>
+                                <p>Tek Kişilik Yatak Adedi : @room.SingleBadCount</p>
+                                <p>Çift kişilik Yatak Adedi : @room.DoubleBadCount</p>
+                                <p>Oda Kapasitesi : @room.Capacity</p>
+                                <div class="space-single"></div>
+                                <h2>Oda Özellikleri</h2>
+                                @if (room.RoomTypeId == 1)
+                                {
+                                    <div class="devider-rooms-detail"></div>
+                                    <div class="space-single"></div>
+                                    <span><i class="ti-check-box"></i> Klima</span>
+                                    <span><i class="ti-check-box"></i> TV</span>
+                                    <span><i class="ti-check-box"></i> Saç Kurutma Makinesi</span>
+                                    <span><i class="ti-check-box"></i> Kablosuz İnternet</span>
+                                }
+                                else if (room.FloorNumber == 3 || room.FloorNumber == 4)
+                                {
+                                    <div class="devider-rooms-detail"></div>
+                                    <span><i class="ti-check-box"></i> Klima</span>
+                                    <span><i class="ti-check-box"></i> TV</span>
+                                    <span><i class="ti-check-box"></i> Saç Kurutma Makinesi</span>
+                                    <span><i class="ti-check-box"></i> Kablosuz İnternet</span>
+                                    <span><i class="ti-check-box"></i> Mini Bar</span>
+                                    <span><i class="ti-check-box"></i> Balkon</span>
+                                }
+                                else
+                                {
+                                    <div class="devider-rooms-detail"></div>
+                                    <span><i class="ti-check-box"></i> Klima</span>
+                                    <span><i class="ti-check-box"></i> TV</span>
+                                    <span><i class="ti-check-box"></i> Saç Kurutma Makinesi</span>
+                                    <span><i class="ti-check-box"></i> Kablosuz İnternet</span>
+                                    <span><i class="ti-check-box"></i> Mini Bar</span>
+                                }
+                                <div class="price">₺@lists.RoomType.BasePrice<sub><br />/ gecelik</sub></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div id="@room.RoomNumber" class="carousel slide" data-ride="carousel">
+
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    @foreach (var roomImage in lists.RoomImages)
+                                    {
+                                        if (room.ID == roomImage.RoomId)
+                                        {
+                                            <div class="item active">
+                                                <img src="/Images/RoomImages/@roomImage.ImageUrl" alt="Los Angeles" style="width:100%;">
+                                                <div class="carousel-caption">
+                                                </div>
+                                            </div>
+                                            break;
+                                        }
+                                    }
+                                    @foreach (var roomImage in lists.RoomImages)
+                                    {
+                                        if (room.ID == roomImage.RoomId)
+                                        {
+                                            <div class="item">
+                                                <img src="/Images/RoomImages/@roomImage.ImageUrl" alt="Chicago" style="width:100%;">
+                                                <div class="carousel-caption">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
+                                <!-- Left and right controls -->
+                                <a class="left carousel-control" href="#@room.RoomNumber" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#@room.RoomNumber" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <h1></h1>
+                            <form asp-action="AddBooking" method="post">
+                                <div class="row">
+                                    <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input hidden name="RoomId" value="@room.ID" />
+                                    </div>
+                                    
+                                    <div class="col-md-4 form-group">
+                                        <label asp-for="BookingFrom">Rezervasyon Başlangıç :</label>
+                                        <span asp-validation-for="BookingFrom" class="text-danger"></span>
+                                        <input hidden name="BookingFrom" value="@Model.BookingFrom" class="form-control" />
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label asp-for="BookingTo">Rezervasyon Bitiş :</label>
+                                        <span asp-validation-for="BookingTo" class="text-danger"></span>
+                                        <input hidden name="BookingTo" value="@Model.BookingTo" class="form-control" />
+                                    </div>
+
+                                    <div class="col-md-4 form-group">
+                                        <label asp-for="BookingPackageId">Konaklama Paketi Seçiniz :</label>
+                                        <span asp-validation-for="BookingPackage" class="text-danger"></span>
+                                        <select asp-for="BookingPackageId" class="form-control" id="selectroom" asp-items="ViewBag.BookingPackages">
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4 form-group">
+                                        <label asp-for="NoOfGuests">Misafir Sayısı :</label>
+                                        <span asp-validation-for="NoOfGuests" class="text-danger"></span>
+                                        <select asp-for="NoOfGuests" type="number" class="form-control">
+                                            <option value="-1">Seçiniz</option>
+                                            @for (int i = 1; i <= Model.NoOfGuests; i++)
+                                            {
+                                                <option>@i</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4 form-group">
+                                        <label asp-for="PersonName">Misafir Adı :</label>
+                                        <span asp-validation-for="PersonName" class="text-danger"></span>
+                                        <input asp-for="PersonName" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="col-md-4 form-group">
+                                        <label asp-for="PersonLastName">Misafir Soyadı :</label>
+                                        <span asp-validation-for="PersonLastName" class="text-danger"></span>
+                                        <input asp-for="PersonLastName" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="col-md-6 form-group">
+                                        <label asp-for="Email">Misafir E-Mail :</label>
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                        <input asp-for="Email" type="email" class="form-control" />
+                                    </div>
+
+                                    <div class="col-md-6 form-group">
+                                        <label asp-for="PhoneNumber">Misafir Telefon No :</label>
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                        <input asp-for="PhoneNumber" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-info">Hemen Rezervasyon Yap</button>
+                            </form>
+                        </div>
+                        <div class="space-single"></div>
+                    </div>
+                    <hr />
+                }
+            </div>
+        </div>
+    </section>
+    <!-- services end -->
+
+}
+else
+{
+    <div class="text-center mt-4">
+        <h2 class="lead text-danger">
+            İstenilen Oda Tipinde Müsait Oda Bulunamadı!
+        </h2>
+    </div>
+}
+
+
+@section scripts{
+    <script>
+
+    </script>
+}

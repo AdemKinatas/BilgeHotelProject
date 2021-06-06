@@ -1,0 +1,63 @@
+﻿@model Room
+@{
+    ViewData["Title"] = "AddRoom";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="w-75 mx-auto p-3" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">       
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomNumber">Oda Numarası :</label>
+        <span asp-validation-for="RoomNumber" class="text-danger"></span>
+        <input asp-for="RoomNumber" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FloorNumber">Kat Numarası :</label>
+        <span asp-validation-for="FloorNumber" class="text-danger"></span>
+        <input asp-for="FloorNumber" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomDescription">Açıklama :</label>
+        <span asp-validation-for="RoomDescription" class="text-danger"></span>
+        <input asp-for="RoomDescription" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomFeatures">Özellikler :</label>
+        <span asp-validation-for="RoomFeatures" class="text-danger"></span>
+        <input asp-for="RoomFeatures" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SingleBadCount">Tekli Yatak Adedi :</label>
+        <span asp-validation-for="SingleBadCount" class="text-danger"></span>
+        <input asp-for="SingleBadCount" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DoubleBadCount">Çift Kişilik Yatak Adedi: :</label>
+        <span asp-validation-for="DoubleBadCount" class="text-danger"></span>
+        <input asp-for="DoubleBadCount" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomTypeId">Oda Tipi :</label>
+        <span asp-validation-for="RoomTypeId" class="text-danger"></span>
+        <select asp-for="RoomTypeId" class="form-control" asp-items="ViewBag.RoomTypes">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomStatusId">Oda Durumu :</label>
+        <span asp-validation-for="RoomStatusId" class="text-danger"></span>
+        <select asp-for="RoomStatusId" class="form-control" asp-items="ViewBag.RoomStatuses">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Oda Fotoğrafları :</label>
+        <input multiple type="file" name="files" class="form-control-file" />
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>
+

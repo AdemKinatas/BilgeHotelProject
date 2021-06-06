@@ -1,0 +1,62 @@
+﻿@model List<RoomType>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model.Count != 0)
+{
+    <div class="container mx-auto mt-2">
+        <div class="row">
+            <div class="col-md-12">
+                <a asp-action="AddRoomType" asp-controller="RoomType" class="btn btn-sm btn-outline-dark my-2"> <i class="fas fa-plus-circle mr-2"></i> Oda Tipi Ekle</a>
+
+                <table class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Oda Tipi Adı</th>
+                            <th>Günlük Fiyatı</th>
+                            <th>Fotoğraflar</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.RoomTypeName</td>
+                                <td>@item.BasePrice</td>
+                                <td>
+                                    @foreach (var roomTypeImage in ViewBag.Images as List<RoomTypeImage>)
+                                    {
+                                        if (roomTypeImage.RoomTypeId == item.ID)
+                                        {
+                                            <img src="~/Images/RoomTypeImages/@roomTypeImage.ImageUrl" width="50" height="50" />
+                                        }
+
+                                    }
+                                </td>
+                                <td>
+                                    <a asp-action="UpdateRoomType" asp-controller="RoomType" asp-route-id="@item.ID" class="btn btn-warning btn-sm"><i class="far fa-edit mr-2"></i>Düzenle</a>
+                                    <a asp-action="DeleteRoomType" asp-controller="RoomType" asp-route-id="@item.ID" class="btn btn-danger btn-sm"><i class="far fa-edit mr-2"></i>Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Kayıtlı Oda Tipi Bulunamadı!
+        </p>
+        <a asp-action="AddRoomType" asp-controller="RoomType" class="btn btn-sm btn-info my-2">Oda Tipi Ekle</a>
+    </div>
+}
+
+

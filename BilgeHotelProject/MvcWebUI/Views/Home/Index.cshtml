@@ -1,0 +1,182 @@
+﻿@model RoomTypeDetailListDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- home -->
+<section aria-label="home" class="mainbg-1" id="home">
+
+    <!-- intro -->
+    <div class="container">
+        <div class="row">
+
+            <!-- spacer -->
+            <div class="space-double hidden-sm hidden-xs"></div>
+            <div class="space-single"></div>
+            <!-- spacer end -->
+
+            <div class="col-md-7 col-xs-12 text-left">
+
+                <!-- spacer -->
+                <div class="space-double hidden-sm hidden-xs"></div>
+                <!-- spacer end -->
+
+                <div class="onStep" data-animation="fadeInUp" data-time="300" id="slidertext">
+                    <h3 class="main-text">LUXURY ROOMS</h3>
+                    <h3 class="main-text">LUXURY BEACH</h3>
+                    <h3 class="main-text">LUXURY VACATION</h3>
+                </div>
+
+                <div class="star-content onStep" data-animation="fadeInUp" data-time="500">
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+                <div class="star-content onStep" data-animation="fadeInUp" data-time="600">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>Sadece %25 farkla Her Şey Dahil hizmetimizden faydalanın!<br />
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>En az bir ay önce yapılan herşey dahil rezervasyonlarda %18,<br />
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>En az bir ay önce yapılan tam pansiyon rezervasyonlarda %16,<br />
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>En az 3 ay önce yapılan rezervasyonlarda %23 indirim siz değerli konuklarımızı bekliyor.
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- intro end -->
+
+</section>
+
+
+<section class="whitepage">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="text-center">
+                    <h2>SİZE ÖZEL ODALARIMIZ</h2>
+                    <span class="devider-center"></span>
+                </div>
+            </div>
+
+            <!-- spacer -->
+            <div class="space-double"></div>
+            <!-- spacer -->
+
+            <div class="onStep" data-animation="fadeInUp" data-time="300">
+                <div class="owl-carousel" id="owl-post">
+                    @foreach (var roomType in Model.RoomTypes)
+                    {
+                        var url = "";
+                        <div class="item">
+                            @foreach (var roomTypeImage in Model.RoomTypeImages)
+                            {
+                                if (roomType.ID == roomTypeImage.RoomTypeId)
+                                {
+                                    url = roomTypeImage.ImageUrl;
+                                    break;
+                                }
+                            }
+                            <div class="recent-post" style="background-image:url('../Images/RoomTypeImages/@url')">
+                                <div class="hovereffect">
+                                    <a href="#">
+                                        <div class="overlay ">
+                                            <div class="content">
+                                                <div class="heading">
+                                                    @roomType.RoomTypeName
+                                                    <span class="devider-recent"></span>
+                                                </div>
+                                                <div class="subheading">Gecelik Fiyat : @roomType.BasePrice ₺</div>
+
+
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <form asp-action="GetAvailableRooms" asp-controller="Booking" method="post" style="text-align:center;margin-top:5px;">
+                                <div class="form-group">
+                                    <input hidden name="RoomTypeId" value="@roomType.ID" />
+                                    <label>Rezervasyon Başlangıç :</label>
+                                    <input type="date" name="BookingFrom" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Rezervasyon Bitiş :</label>
+                                    <input type="date" name="BookingTo" />
+                                </div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <button type="submit" class="btn btn-primary">Müsait Odaları Gör</button>
+                                }
+                                else
+                                {
+                                    <a asp-action="Login" asp-controller="Account" asp-route-roomTypeId="@roomType.ID" class="btn btn-primary">Müsait Odaları Gör</a>
+                                }
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section about end -->
+
+
+<section id="about-us-1" class="h-bg no-padding col-content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="image-container col-md-6 pull-left onStep" data-animation="fadeInLeft" data-time="0"></div>
+
+            <div class="col-md-6 p-90">
+                <div class="sp-padding">
+                    <h2>
+                        Otelimize Hoşgeldiniz
+                    </h2>
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="about-us-2" class="h-bg no-padding col-content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="image-container col-md-6 pull-right onStep" data-animation="fadeInRight" data-time="0"></div>
+
+            <div class="col-md-6 p-60">
+                <div class="sp-padding">
+                    <h3>
+                        Konforlu ve Huzurlu Bir Tatil İçin
+                    </h3>
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+

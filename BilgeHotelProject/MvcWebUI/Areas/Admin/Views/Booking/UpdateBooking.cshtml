@@ -1,0 +1,65 @@
+﻿@model Booking
+
+@{
+    ViewData["Title"] = "UpdateBooking";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="w-75 mx-auto p-3" method="post">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomId">Oda Seçiniz :</label>
+        <span asp-validation-for="RoomId" class="text-danger"></span>
+        <select asp-for="RoomId" class="form-control" asp-items="ViewBag.Rooms">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PersonName">Misafir Adı :</label>
+        <span asp-validation-for="PersonName" class="text-danger"></span>
+        <input asp-for="PersonName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PersonLastName">Misafir Soyadı :</label>
+        <span asp-validation-for="PersonLastName" class="text-danger"></span>
+        <input asp-for="PersonLastName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Misafir E-Mail :</label>
+        <span asp-validation-for="Email" class="text-danger"></span>
+        <input asp-for="Email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber">Misafir Telefon No :</label>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        <input asp-for="PhoneNumber" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingFrom">Rezervasyon Başlangıç Tarihi :</label>
+        <span asp-validation-for="BookingFrom" class="text-danger"></span>
+        <input asp-for="BookingFrom" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingTo">Rezervasyon Bitiş Tarihi :</label>
+        <span asp-validation-for="BookingTo" class="text-danger"></span>
+        <input asp-for="BookingTo" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NoOfGuests">Misafir Sayısı :</label>
+        <span asp-validation-for="NoOfGuests" class="text-danger"></span>
+        <input asp-for="NoOfGuests" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingPackageId">Konaklama Paketi Seçiniz :</label>
+        <span asp-validation-for="BookingPackageId" class="text-danger"></span>
+        <select asp-for="BookingPackageId" class="form-control" asp-items="ViewBag.BookingPackages">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>
+

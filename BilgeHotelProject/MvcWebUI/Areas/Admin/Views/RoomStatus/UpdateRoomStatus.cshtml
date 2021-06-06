@@ -1,0 +1,19 @@
+﻿@model RoomStatus
+    ViewData["Title"] = "UpdateRoomStatus";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form asp-action="UpdateRoomStatus" class="w-75 mx-auto p-3" method="post">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomStatusName">Oda Tipi Adı :</label>
+        <span asp-validation-for="RoomStatusName" class="text-danger"></span>
+        <input asp-for="RoomStatusName" type="text" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>
+

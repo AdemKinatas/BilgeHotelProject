@@ -1,0 +1,65 @@
+﻿@model Guest
+
+@{
+    ViewData["Title"] = "UpdateCustomer";
+    Layout = "~/Areas/Reception/Views/Shared/_ReceptionLayout.cshtml";
+}
+
+
+
+<form class="w-75 mx-auto p-3" method="post">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomId">Oda Seçiniz :</label>
+        <span asp-validation-for="RoomId" class="text-danger"></span>
+        <select asp-for="RoomId" class="form-control" asp-items="ViewBag.Rooms">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="NationalIdentificationNumber">Kimlik/Pasaport No :</label>
+        <span asp-validation-for="NationalIdentificationNumber" class="text-danger"></span>
+        <input asp-for="NationalIdentificationNumber" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName">Misafir Adı :</label>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+        <input asp-for="FirstName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName">Misafir Soyadı :</label>
+        <span asp-validation-for="LastName" class="text-danger"></span>
+        <input asp-for="LastName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email :</label>
+        <span asp-validation-for="Email" class="text-danger"></span>
+        <input asp-for="Email" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber">Telefon No :</label>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        <input asp-for="PhoneNumber" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CheckIn">Giriş :</label>
+        <span asp-validation-for="CheckIn" class="text-danger"></span>
+        <input asp-for="CheckIn" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CheckOut">Çıkış :</label>
+        <span asp-validation-for="CheckOut" class="text-danger"></span>
+        <input asp-for="CheckOut" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Address">Adres :</label>
+        <span asp-validation-for="Address" class="text-danger"></span>
+        <input asp-for="Address" type="text" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>
+

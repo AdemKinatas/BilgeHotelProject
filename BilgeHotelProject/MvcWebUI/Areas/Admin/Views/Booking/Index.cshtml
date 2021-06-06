@@ -1,0 +1,127 @@
+﻿@model BookingListDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model.Bookings.Count != 0)
+{
+    <main>
+        <div class="card mb-4">
+            <div class="card-header">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <i class="fas fa-table mr-1"></i>
+                Rezervasyonlar <br />
+                <a asp-action="GetAvailableRoomsByFilter" asp-controller="Booking" class="btn btn-sm btn-outline-dark my-2"> <i class="fas fa-plus-circle mr-2"></i>Yeni Rezervasyon</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Oda No</th>
+                                <th>Ad</th>
+                                <th>Soyad</th>
+                                <th>E-Mail</th>
+                                <th>Telefon</th>
+                                <th>Başlangıç</th>
+                                <th>Bitiş</th>
+                                <th>Misafir Sayısı</th>
+                                <th>Konaklama Türü</th>
+                                <th>Toplam Tutar</th>
+                                <th>Ödendi mi?</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Oda No</th>
+                                <th>Ad</th>
+                                <th>Soyad</th>
+                                <th>E-Mail</th>
+                                <th>Telefon</th>
+                                <th>Başlangıç</th>
+                                <th>Bitiş</th>
+                                <th>Misafir Sayısı</th>
+                                <th>Konaklama Türü</th>
+                                <th>Toplam Tutar</th>
+                                <th>Ödendi mi?</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var booking in Model.Bookings)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (Model.Rooms != null)
+                                        {
+                                            foreach (var roomType in Model.Rooms)
+                                            {
+                                                if (roomType.ID == booking.RoomId)
+                                                {
+                                                    @roomType.RoomNumber
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>@booking.PersonName</td>
+                                    <td>@booking.PersonLastName</td>
+                                    <td>@booking.Email</td>
+                                    <td>@booking.PhoneNumber</td>
+                                    <td>@booking.BookingFrom</td>
+                                    <td>@booking.BookingTo</td>
+                                    <td>@booking.NoOfGuests</td>
+                                    <td>
+                                        @if (Model.BookingPackages != null)
+                                        {
+                                            foreach (var bookingPackage in Model.BookingPackages)
+                                            {
+                                                if (bookingPackage.ID == booking.BookingPackageId)
+                                                {
+                                                    @bookingPackage.BookingPackageName
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>@booking.TotalAmount</td>
+                                    <td>
+                                        @if (booking.IsPaid)
+                                        {
+                                            <p>Evet</p>
+                                        }
+                                        else
+                                        {
+                                            <p>Hayır</p>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a asp-action="UpdateBooking" asp-controller="Booking" asp-route-id="@booking.ID" class="btn btn-warning btn-sm"><i class="far fa-edit mr-2"></i>Düzenle</a>
+                                        <a asp-action="DeleteBooking" asp-controller="Booking" asp-route-id="@booking.ID" class="btn btn-danger btn-sm"><i class="far fa-edit mr-2"></i>Sil</a>
+                                        @if (!booking.IsPaid)
+                                        {
+                                            <a asp-action="AddPayment" asp-controller="Payment" asp-route-bookingId="@booking.ID" class="btn btn-info btn-sm"><i class="far fa-edit mr-2"></i>Ödeme Al</a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Kayıtlı Rezervasyon Bulunamadı!
+        </p>
+        <a asp-action="GetAvailableRoomsByFilter" asp-controller="Booking" class="btn btn-sm btn-outline-dark my-2"> <i class="fas fa-plus-circle mr-2"></i>Yeni Rezervasyon</a>
+    </div>
+}

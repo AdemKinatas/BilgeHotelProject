@@ -1,0 +1,104 @@
+﻿@model BookingListDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- subheader -->
+<section id="subheader">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    Rezervasyonlarım
+                </h1>
+            </div>
+
+            <!-- devider -->
+            <div class="col-md-12">
+                <div class="devider-page">
+                    <div class="devider-img-right">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- subheader end -->
+<div class="container" style="padding-top:70px;">
+    @if (Model.Bookings.Count != 0)
+    {
+        <table class="table table-sm table-hover mx-auto">
+            <thead>
+                <tr>
+                    <th>Oda Numarası</th>
+                    <th>Misafir Adı</th>
+                    <th>Misafir Soyadı</th>
+                    <th>Misafir E-Mail</th>
+                    <th>Misafir Telefon No.</th>
+                    <th>Başlangıç</th>
+                    <th>Bitiş</th>
+                    <th>Misafir Sayısı</th>
+                    <th>Konaklama Türü</th>
+                    <th>Toplam Tutar</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var booking in Model.Bookings)
+                {
+                    <tr>
+                        <td>
+                            @if (Model.Rooms != null)
+                            {
+                                foreach (var roomType in Model.Rooms)
+                                {
+                                    if (roomType.ID == booking.RoomId)
+                                    {
+                                        @roomType.RoomNumber
+                                    }
+                                }
+                            }
+                        </td>
+                        <td>@booking.PersonName</td>
+                        <td>@booking.PersonLastName</td>
+                        <td>@booking.Email</td>
+                        <td>@booking.PhoneNumber</td>
+                        <td>@booking.BookingFrom</td>
+                        <td>@booking.BookingTo</td>
+                        <td>@booking.NoOfGuests</td>
+                        <td>
+                            @if (Model.BookingPackages != null)
+                            {
+                                foreach (var bookingPackage in Model.BookingPackages)
+                                {
+                                    if (bookingPackage.ID == booking.BookingPackageId)
+                                    {
+                                        @bookingPackage.BookingPackageName
+                                    }
+                                }
+                            }
+                        </td>
+                        <td>@booking.TotalAmount</td>
+                        <td>
+                            <a asp-action="UpdateBooking" asp-controller="Booking" asp-route-id="@booking.ID" class="btn btn-warning btn-sm"><i class="fa fa-edit mr-2"></i>Düzenle</a>
+                            <a asp-action="DeleteBooking" asp-controller="Booking" asp-route-id="@booking.ID" class="btn btn-danger btn-sm"><i class="fa fa-edit mr-2"></i>Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="text-center mt-4">
+            <p class="lead">
+                Kayıtlı Rezervasyon Bulunamadı!
+            </p>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,90 @@
+﻿@model List<PayrollForManager>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@if (Model.Count != 0)
+{
+    <main>
+        <div class="card mb-4">
+            <div class="card-header">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <i class="fas fa-table mr-1"></i>
+                Yönetici Maaş Bordroları Tablosu<br />
+                <a asp-action="AddPayrollForManager" asp-controller="PayrollForManager" class="btn btn-sm btn-outline-dark my-2"> <i class="fas fa-plus-circle mr-2"></i>Yönetici Maaş Bordrosu Ekle</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Ad-Soyad</th>
+                                <th>Ay</th>
+                                <th>Yıl</th>
+                                <th>Açıklama</th>
+                                <th>Maaş</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Ad-Soyad</th>
+                                <th>Ay</th>
+                                <th>Yıl</th>
+                                <th>Açıklama</th>
+                                <th>Maaş</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var payrollForManager in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (ViewBag.Managers != null)
+                                        {
+                                            foreach (var manager in ViewBag.Managers as List<Manager>)
+                                            {
+                                                if (payrollForManager.ManagerId == manager.ID)
+                                                {
+                                                    @manager.FullName
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>@payrollForManager.SalaryDate.Month</td>
+                                    <td>@payrollForManager.SalaryDate.Year</td>
+                                    <td>@payrollForManager.Description</td>
+                                    <td>@payrollForManager.Salary</td>
+                                    <td>
+                                        <a asp-action="UpdatePayrollForManager" asp-controller="PayrollForManager" asp-route-id="@payrollForManager.ID" class="btn btn-warning btn-sm"><i class="far fa-edit mr-2"></i>Düzenle</a>
+                                        <a asp-action="DeletePayrollForManager" asp-controller="PayrollForManager" asp-route-id="@payrollForManager.ID" class="btn btn-danger btn-sm"><i class="far fa-edit mr-2"></i>Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Kayıtlı Çalışan Maaş Bordrosu Bulunamadı!
+        </p>
+        <a asp-action="AddPayrollForManager" asp-controller="PayrollForManager" class="btn btn-sm btn-outline-dark my-2"> <i class="fas fa-plus-circle mr-2"></i>Yönetici Maaş Bordrosu Ekle</a>
+    </div>
+}
+
+

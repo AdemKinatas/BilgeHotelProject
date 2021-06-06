@@ -1,0 +1,51 @@
+﻿@model Booking
+
+@{
+    ViewData["Title"] = "UpdateBooking";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="w-75 mx-auto p-3" method="post">
+    <div class="form-group">
+        <label asp-for="RoomId">Oda Seçiniz :</label>
+        <select asp-for="RoomId" class="form-control" asp-items="ViewBag.Rooms">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PersonName">Misafir Adı :</label>
+        <input asp-for="PersonName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PersonLastName">Misafir Soyadı :</label>
+        <input asp-for="PersonLastName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Misafir E-Mail :</label>
+        <input asp-for="Email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber">Misafir Telefon No :</label>
+        <input asp-for="PhoneNumber" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingFrom">Rezervasyon Başlangıç Tarihi :</label>
+        <input asp-for="BookingFrom" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingTo">Rezervasyon Bitiş Tarihi :</label>
+        <input asp-for="BookingTo" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NoOfGuests">Misafir Sayısı :</label>
+        <input asp-for="NoOfGuests" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingPackageId">Konaklama Paketi Seçiniz :</label>
+        <select asp-for="BookingPackageId" class="form-control" asp-items="ViewBag.BookingPackages">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>
+

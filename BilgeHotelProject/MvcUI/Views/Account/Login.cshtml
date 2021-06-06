@@ -1,0 +1,32 @@
+﻿@model UserForLoginDto
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-action="Login" method="post" class="mt-5 mb-5 w-75 mx-auto p-3 shadow">
+
+    <h4 class="text-center">Giriş Yap</h4>
+    <div class="form-group">
+        <label asp-for="UserName">Kullanıcı Adı :</label>
+        <span asp-validation-for="UserName" class="text-danger"></span>
+        <input asp-for="UserName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password">Şifre :</label>
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <input type="password" asp-for="Password" class="form-control" />
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" asp-for="RememberMe" class="form-check-input" />
+        <label asp-for="RememberMe" class="form-check-label">Beni Hatırla</label>
+    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger">
+
+    </div>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-danger btn-sm">Vazgeç</a>
+    <input type="submit" class="btn btn-info btn-sm" value="Giriş Yap" />
+    <a asp-action="Register" asp-controller="Account" class="btn btn-primary btn-sm">Hesabınız Yok mu? Kayıt Ol</a>
+</form>

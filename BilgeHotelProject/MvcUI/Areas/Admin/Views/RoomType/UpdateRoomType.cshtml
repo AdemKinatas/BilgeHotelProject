@@ -1,0 +1,35 @@
+﻿@model RoomType
+@{
+    ViewData["Title"] = "UpdateRoomType";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form asp-action="UpdateRoomType" class="w-75 mx-auto p-3" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="RoomTypeName">Oda Tipi Adı :</label>
+        <input asp-for="RoomTypeName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BasePrice">Günlük Konaklama Ücreti :</label>
+        <input asp-for="BasePrice" type="number" step="0.01" class="form-control" />
+    </div>
+    <div class="form-group">
+        <div class="row">
+            @foreach (var roomTypeImage in ViewBag.RoomTypeImages as List<RoomTypeImage>)
+            {
+                <div class="col-md-2">
+                    <div>
+                        <h5 class="text-center">Güncellenecek Fotoğraflar : </h5>
+                        <img src="~/Images/RoomTypeImages/@roomTypeImage.ImageUrl" class="w-100" style="height:10rem!important;" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Oda Tipi Fotoğrafları :</label>
+        <input multiple type="file" name="files" class="form-control-file" />
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Kaydet</button>
+</form>
+

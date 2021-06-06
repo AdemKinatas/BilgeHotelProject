@@ -1,0 +1,32 @@
+﻿@model BookingFilter
+@{
+    ViewData["Title"] = "GetAvailableRoomsByFilter";
+    Layout = "~/Areas/Reception/Views/Shared/_ReceptionLayout.cshtml";
+}
+
+<form asp-action="GetAvailableRoomsByFilter" class="w-75 mx-auto p-3" method="post">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomTypeId">Oda Tipi Seçiniz :</label>
+        <span asp-validation-for="RoomTypeId" class="text-danger"></span>
+        <select asp-for="RoomTypeId" class="form-control" asp-items="ViewBag.RoomTypes">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingFrom">Rezervasyon Başlangıç Tarihi :</label>
+        <span asp-validation-for="BookingFrom" class="text-danger"></span>
+        <input asp-for="BookingFrom" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingTo">Rezervasyon Bitiş Tarihi :</label>
+        <span asp-validation-for="BookingTo" class="text-danger"></span>
+        <input asp-for="BookingTo" type="date" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-check mr-2"></i>Müsait Odaları Getir</button>
+</form>
+

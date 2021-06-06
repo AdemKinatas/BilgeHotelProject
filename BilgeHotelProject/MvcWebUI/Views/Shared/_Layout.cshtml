@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Bilge Hotel</title>
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <!-- favicon -->
+    <link href="/Luxury Hotel/v1/img/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <!-- Bootstrap CSS -->
+    <link href="/Luxury Hotel/v1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Luxury Hotel/v1/css/jquery.dateselect.css">
+
+    <link href="~/css/signin.css" rel="stylesheet" />
+
+    <!-- font themify CSS -->
+    <link rel="stylesheet" href="/Luxury Hotel/v1/css/themify-icons.css">
+    <!-- font awesome CSS -->
+    <link href="/Luxury Hotel/v1/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- on3step CSS -->
+    <link href="/Luxury Hotel/v1/css/animated-on3step.css" rel="stylesheet">
+    <link href="/Luxury Hotel/v1/css/owl.carousel.css" rel="stylesheet">
+    <link href="/Luxury Hotel/v1/css/owl.theme.css" rel="stylesheet">
+    <link href="/Luxury Hotel/v1/css/owl.transitions.css" rel="stylesheet">
+    <link href="/Luxury Hotel/v1/css/on3step-style.css" rel="stylesheet">
+    <link href="/Luxury Hotel/v1/css/queries-on3step.css" media="all" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <!-- preloader -->
+    <div class="bg-preloader-white"></div>
+    <div class="preloader-white">
+        <div class="mainpreloader">
+            <span></span>
+        </div>
+    </div>
+    <!-- preloader end -->
+    <!-- content wraper -->
+    <div class="content-wrapper">
+
+        <header class="init">
+
+            <!-- subnav -->
+            <div class="subnav hidden-sm hidden-xs">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="left">
+                                <div class="social-icons-subnav">
+                                    <div><i class="fa fa-phone"></i>+908504440333</div>
+                                    <div><i class="ti-email"></i><a href="mailto:companyname@gmail.com">ademkinatas@gmail.com</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="right">
+                                <div class="social-icons-subnav">
+                                    <a href="https://twitter.com/adem_kinatas"><span class="ti-twitter"></span></a>
+                                    <a href="https://www.instagram.com/ademkinatas/"><span class="ti-instagram"></span></a>
+                                    <a href="https://www.linkedin.com/in/ademkinatas/"><span class="ti-linkedin"></span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- subnav end -->
+            <!-- nav -->
+            <div class="navbar-default-white navbar-fixed-top">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- menu mobile display -->
+                        <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                            <span class="icon icon-bar"></span>
+                            <span class="icon icon-bar"></span>
+                            <span class="icon icon-bar"></span>
+                        </button>
+
+                        <!-- logo -->
+                        <a class="navbar-brand white" asp-action="Index" asp-controller="Home">
+                            <h4 style="color:white;"><i class="fa fa-hotel"></i>Bilge Hotel</h4>
+                        </a>
+                        <!-- logo end -->
+                        <!-- mainmenu start -->
+                        <div class="white menu-init" id="main-menu">
+                            <nav id="menu-center">
+                                <ul>
+                                    <li>
+                                        <a asp-action="Index" asp-controller="Home">Ana Sayfa</a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="About" asp-controller="Home">Hakkımızda</a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="Index" asp-controller="Room">Odalar</a>
+                                    </li>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li>
+                                            <a href="#">@User.Identity.Name<span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <ul>
+                                                    <li><a asp-action="Index" asp-controller="Home" asp-area="Admin">Admin Panel</a></li>
+                                                    <li><a asp-action="Index" asp-controller="Home" asp-area="Reception">Resepsiyon</a></li>
+                                                    <li><a asp-action="Index" asp-controller="Home" asp-area="HumanResources">İnsan Kaynakları</a></li>
+                                                    <li><a asp-action="LogOut" asp-controller="Account"><i class="fa fa-sign-out"></i>LogOut</a></li>
+                                                </ul>
+                                            }
+                                            else if (User.IsInRole("Reception"))
+                                            {
+
+                                                <ul>
+                                                    <li><a asp-action="Index" asp-controller="Home" asp-area="Reception">Resepsiyon</a></li>
+                                                    <li><a asp-action="LogOut" asp-controller="Account"><i class="fa fa-sign-out"></i>LogOut</a></li>
+                                                </ul>
+                                            }
+                                            else if (User.IsInRole("HumanResources"))
+                                            {
+
+                                                <ul>
+                                                    <li><a asp-action="Index" asp-controller="Home" asp-area="HumanResources">İnsan Kaynakları</a></li>
+                                                    <li><a asp-action="LogOut" asp-controller="Account"><i class="fa fa-sign-out"></i>LogOut</a></li>
+                                                </ul>
+                                            }
+                                            else
+                                            {
+                                                <ul>
+                                                    <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+                                                    <li><a asp-action="Index" asp-controller="Booking">Rezervasyonlarım</a></li>
+                                                    <li><a asp-action="LogOut" asp-controller="Account"><i class="fa fa-sign-out"></i>LogOut</a></li>
+                                                </ul>
+                                            }
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a class="box" asp-action="Login" asp-controller="Account">
+                                                <i class="fa fa-sign-in"></i>
+                                                Login
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="box" asp-action="Register" asp-controller="Account">
+                                                <i class="fa fa-registered"></i>
+                                                Register
+                                            </a>
+                                        </li>
+                                    }
+                                    <li>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a class="btn-book-menu" asp-action="Index" asp-controller="Room">BOOK NOW</a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn-book-menu" asp-action="Login" asp-controller="Account">BOOK NOW</a>
+
+                                        }
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- mainmenu end -->
+
+                    </div>
+                </div>
+                <!-- container -->
+            </div>
+            <!-- nav end -->
+
+        </header>
+
+        @RenderBody()
+
+
+        <section id="brand" class="brand-page mt-5" aria-label="brands" style="background-image: url('/Images/Home/beach-sea-cancun-sun.png')">
+            <!-- brands-->
+            <div class="container">
+                <div class="row">
+
+                    <div class="owl-carousel" id="owl-brand">
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/1.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/2.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/3.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/4.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/5.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/6.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/1.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/2.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/3.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/4.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/5.png">
+                        </div>
+
+                        <div class="item">
+                            <img alt="background" src="/Luxury Hotel/v1/img/ourclients/6.png">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- brands end-->
+        </section>
+
+
+        <!-- subfooter -->
+        <section aria-label="footer" class="subfooter">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 ">
+                        <div class="logo">
+                            <a class="navbar-brand white" asp-action="Index" asp-controller="Home">
+                                <h4 style="color:white;"><i class="fa fa-hotel"></i>Bilge Hotel</h4>
+                            </a>
+                        </div>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id, tempor eu, gravida
+                            id, odio. Maecenas suscipit, risus et eleifend imperdiet, nisi orci ullamcorper massa adipiscing.
+                        </p>
+                    </div>
+
+
+                    <div class="col-md-6 text-center">
+                        <h3>
+                            CONTACT INFO
+                        </h3>
+                        <address>
+                            <i class="fa fa-map-marker"></i>Kemer/Antalya <br />
+                            <i class="fa fa-phone"></i> (+90) 850 444 0 333 <br />
+                            <i class="fa fa-envelope-o"></i> <a href="">ademkinatas@gmail.com</a>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- subfooter end -->
+        <!-- footer -->
+        <footer class="white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        &copy; Bilge Hotel 2021
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="right">
+                            <div class="social-icons">
+                                <a href="https://twitter.com/adem_kinatas"><span class="ti-twitter"></span></a>
+                                <a href="https://www.instagram.com/ademkinatas/"><span class="ti-instagram"></span></a>
+                                <a href="https://www.linkedin.com/in/ademkinatas/"><span class="ti-linkedin"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer end -->
+        <!-- ScrolltoTop -->
+        <div id="totop">
+            <span class="ti-angle-up"></span>
+        </div>
+
+    </div>
+    <!-- content wraper end -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- plugin JS -->
+    <script src="/Luxury Hotel/v1/plugin/pluginson3step.js" type="text/javascript"></script>
+    <script src="/Luxury Hotel/v1/plugin/sticky.js" type="text/javascript"></script>
+
+    <script src="~/lib/bootstrap/dist/js/twitter-bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/Luxury Hotel/v1/js/jquery.dateselect.js"></script>
+    <!-- slider revolution  -->
+    <script type="text/javascript" src="/Luxury Hotel/v1/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- on3step JS -->
+    <script src="/Luxury Hotel/v1/js/on3step.js" type="text/javascript"></script>
+    <script src="/Luxury Hotel/v1/js/plugin-set.js" type="text/javascript"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    @RenderSection("scripts", false)
+</body>
+</html>

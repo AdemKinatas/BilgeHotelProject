@@ -1,0 +1,106 @@
+﻿@model RoomListDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Reception/Views/Shared/_ReceptionLayout.cshtml";
+}
+
+
+@if (Model.Rooms.Count != 0)
+{
+    <main>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Odalar <br />
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Oda No</th>
+                                <th>Kat No</th>
+                                <th>Kapasite</th>
+                                <th>Özellikleri</th>
+                                <th>Oda Tipi</th>
+                                <th>Durumu</th>
+                                <th>Rezervasyonlar</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Oda No</th>
+                                <th>Kat No</th>
+                                <th>Kapasite</th>
+                                <th>Özellikleri</th>
+                                <th>Oda Tipi</th>
+                                <th>Durumu</th>
+                                <th>Rezervasyonlar</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var room in Model.Rooms)
+                            {
+                                <tr>
+                                    <td>@room.RoomNumber</td>
+                                    <td>@room.FloorNumber</td>
+                                    <td>@room.Capacity</td>
+                                    <td>@room.RoomFeatures</td>
+                                    <td>
+                                        @if (Model.RoomTypes != null)
+                                        {
+                                            foreach (var roomType in Model.RoomTypes)
+                                            {
+                                                if (room.RoomTypeId == roomType.ID)
+                                                {
+                                                    @roomType.RoomTypeName
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (Model.RoomStatuses != null)
+                                        {
+                                            foreach (var roomStatus in Model.RoomStatuses)
+                                            {
+                                                if (room.RoomStatusId == roomStatus.ID)
+                                                {
+                                                    @roomStatus.RoomStatusName
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (ViewBag.Bookings != null)
+                                        {
+                                            foreach (var booking in ViewBag.Bookings as List<Booking>)
+                                            {
+                                                if (booking.RoomId == room.ID)
+                                                {
+                                                    <h6>@booking.BookingFrom.ToShortDateString() - @booking.BookingTo.ToShortDateString()</h6>
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        <a asp-action="UpdateRoom" asp-controller="Room" asp-route-id="@room.ID" class="btn btn-warning btn-sm"><i class="far fa-edit mr-2"></i>Düzenle</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Kayıtlı Oda Bulunamadı!
+        </p>
+    </div>
+}

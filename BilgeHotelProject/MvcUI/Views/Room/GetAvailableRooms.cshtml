@@ -1,0 +1,30 @@
+﻿
+
+@{
+    ViewData["Title"] = "GetAvailableRooms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+            @if (Model.Rooms.Count != 0)
+            {
+
+
+            }
+            else
+            {
+                <div class="text-center mt-4">
+                    <h2 class="lead text-danger">
+                        İstenilen Oda Tipinde Müsait Oda Bulunamadı!
+                    </h2>
+                </div>
+            }
+
+
+
+@section scripts{
+    <script>
+
+    </script>
+}

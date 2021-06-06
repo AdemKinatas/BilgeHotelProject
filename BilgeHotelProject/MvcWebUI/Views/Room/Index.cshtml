@@ -1,0 +1,127 @@
+﻿@model RoomTypeDetailListDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- subheader -->
+<section id="subheader">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    Odalarımız
+                </h1>
+            </div>
+
+            <!-- devider -->
+            <div class="col-md-12">
+                <div class="devider-page">
+                    <div class="devider-img-right">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <ul class="subdetail">
+                    <li>
+                        <a asp-action="Index" asp-controller="Home">Ana Sayfa</a>
+                    </li>
+
+                    <li class="sep">
+                        /
+                    </li>
+
+                    <li>
+                        Odalarımız
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- subheader end -->
+
+
+<section class="whitepage">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="text-center">
+                    <h2>SİZE ÖZEL ODALARIMIZ</h2>
+                    <span class="devider-center"></span>
+                </div>
+            </div>
+
+            <!-- spacer -->
+            <div class="space-double"></div>
+            <!-- spacer -->
+
+            <div class="onStep" data-animation="fadeInUp" data-time="300">
+                <div class="owl-carousel" id="owl-post">
+                    @foreach (var roomType in Model.RoomTypes)
+                    {
+                        var url = "";
+                        <form asp-action="GetAvailableRooms" asp-controller="Booking" method="post">
+                            <div class="item">
+                                @foreach (var roomTypeImage in Model.RoomTypeImages)
+                                {
+                                    if (roomType.ID == roomTypeImage.RoomTypeId)
+                                    {
+                                        url = roomTypeImage.ImageUrl;
+                                        break;
+                                    }
+                                }
+                                <div class="recent-post" style="background-image:url('../Images/RoomTypeImages/@url')">
+                                    <div class="hovereffect">
+                                        <a href="#">
+                                            <div class="overlay ">
+                                                <div class="content">
+                                                    <div class="heading">
+                                                        @roomType.RoomTypeName
+                                                        <span class="devider-recent"></span>
+                                                    </div>
+                                                    <div class="subheading">Gecelik Fiyat : @roomType.BasePrice ₺</div>
+
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input hidden name="RoomTypeId" value="@roomType.ID" />
+                                    <label>Rezervasyon Başlangıç :</label>
+                                    <input type="date" name="BookingFrom" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Rezervasyon Bitiş :</label>
+                                    <input type="date" name="BookingTo" />
+                                </div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <button type="submit" class="btn btn-primary">Müsait Odaları Gör</button>
+                                }
+                                else
+                                {
+                                    <a asp-action="Login" asp-controller="Account" asp-route-roomTypeId="@roomType.ID" class="btn btn-primary">Müsait Odaları Gör</a>
+                                }
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section about end -->
+
+
+@section scripts{
+    <script>
+
+    </script>
+}
+

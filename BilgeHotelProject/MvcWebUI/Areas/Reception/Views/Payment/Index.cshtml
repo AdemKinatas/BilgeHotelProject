@@ -1,0 +1,88 @@
+﻿@model PaymentListDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Reception/Views/Shared/_ReceptionLayout.cshtml";
+}
+
+
+@if (Model.Payments.Count != 0)
+{
+    <main>
+        <div class="card mb-4">
+            <div class="card-header">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <i class="fas fa-table mr-1"></i>
+                Ödemeler <br />
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Ad - Soyad</th>
+                                <th>Ödeme Tipi</th>
+                                <th>Ekstra Harcamalar</th>
+                                <th>Toplam Tutar</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Ad - Soyad</th>
+                                <th>Ödeme Tipi</th>
+                                <th>Ekstra Harcamalar</th>
+                                <th>Toplam Tutar</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var payment in Model.Payments)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (Model.Bookings != null)
+                                        {
+                                            foreach (var booking in Model.Bookings)
+                                            {
+                                                if (booking.ID == payment.BookingId)
+                                                {
+                                                    <p>@booking.PersonName @booking.PersonLastName</p>
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (Model.PaymentTypes != null)
+                                        {
+                                            foreach (var paymentType in Model.PaymentTypes)
+                                            {
+                                                if (paymentType.ID == payment.PaymentTypeId)
+                                                {
+                                                    @paymentType.PaymentTypeName
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>@payment.ExtraPrice</td>
+                                    <td>@payment.PaymentAmount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Kayıtlı Ödeme Bulunamadı!
+        </p>
+    </div>
+}
+

@@ -1,0 +1,31 @@
+﻿@model Booking
+
+@{
+    ViewData["Title"] = "DeleteBooking";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form asp-action="DeleteBooking" method="post">
+    <div class="container">
+        <div class="col-md-6">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="card">
+                <input hidden asp-for="ID" />
+                <div class="card-body">
+                    <h5>Bu Rezervasyonu Silmek istediğinizden emin misiniz?</h5>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-danger">Evet</button>
+                    <button asp-action="Index" asp-controller="Booking" type="submit" class="btn btn-primary">İptal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

@@ -1,0 +1,78 @@
+﻿@model List<Guest>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Reception/Views/Shared/_ReceptionLayout.cshtml";
+}
+
+@if (Model.Count != 0)
+{
+    <main>
+        <div class="card mb-4">
+            <div class="card-header">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <i class="fas fa-table mr-1"></i>
+                Misafirler Tablosu <br />
+                <a asp-action="AddGuest" asp-controller="Guest" class="btn btn-sm btn-outline-dark my-2"> <i class="fas fa-plus-circle mr-2"></i> Misafir Ekle</a>
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Oda No</th>
+                                <th>Kimlik/Pasaport No</th>
+                                <th>Adı</th>
+                                <th>Soyadı</th>
+                                <th>Telefon</th>
+                                <th>EMail</th>
+                                <th>Adres</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @foreach (var room in ViewBag.Rooms as List<Room>)
+                                    {
+                                        if (room.ID == item.RoomId)
+                                        {
+                                            @room.RoomNumber
+                                        }
+                                    }
+                                    <td>@item.NationalIdentificationNumber</td>
+                                    <td>@item.FirstName</td>
+                                    <td>@item.LastName</td>
+                                    <td>@item.PhoneNumber</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Address</td>
+                                    <td>
+                                        <a asp-action="UpdateGuest" asp-controller="Guest" asp-route-id="@item.ID" class="btn btn-warning btn-sm"><i class="far fa-edit mr-2"></i>Düzenle</a>
+                                        <a asp-action="DeleteGuest" asp-controller="Guest" asp-route-id="@item.ID" class="btn btn-danger btn-sm"><i class="far fa-edit mr-2"></i>Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Kayıtlı Misafir Bulunamadı!
+        </p>
+        <a asp-action="AddGuest" asp-controller="Guest" class="btn btn-sm btn-info my-2">Misafir Ekle</a>
+    </div>
+}
+
