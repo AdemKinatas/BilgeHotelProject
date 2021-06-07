@@ -41,6 +41,8 @@ namespace MvcWebUI.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddGuest(Guest guest)
         {
+            guest.CheckIn = guest.CheckIn.AddHours(14);
+            guest.CheckOut = guest.CheckOut.AddHours(10);
             if (ModelState.IsValid)
             {
                 var result = _guestService.Add(guest);

@@ -28,3 +28,12 @@ C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\Entities\obj\Debug\netstand
 C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\Entities\obj\Debug\netstandard2.1\Entities.csproj.CoreCompileInputs.cache
 C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\Entities\obj\Debug\netstandard2.1\Entities.dll
 C:\Users\ademk\OneDrive\Masaüstü\BilgeHotelProject\Entities\obj\Debug\netstandard2.1\Entities.pdb
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Entities\bin\Debug\netstandard2.1\Entities.deps.json
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Entities\bin\Debug\netstandard2.1\Entities.dll
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Entities\bin\Debug\netstandard2.1\Entities.pdb
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Entities\obj\Debug\netstandard2.1\Entities.csproj.AssemblyReference.cache
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Entities\obj\Debug\netstandard2.1\Entities.AssemblyInfoInputs.cache
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Entities\obj\Debug\netstandard2.1\Entities.AssemblyInfo.cs
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Entities\obj\Debug\netstandard2.1\Entities.csproj.CoreCompileInputs.cache
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Entities\obj\Debug\netstandard2.1\Entities.dll
+C:\Users\ademk\OneDrive\Belgeler\GitHub\BilgeHotelProject\BilgeHotelProject\Entities\obj\Debug\netstandard2.1\Entities.pdb

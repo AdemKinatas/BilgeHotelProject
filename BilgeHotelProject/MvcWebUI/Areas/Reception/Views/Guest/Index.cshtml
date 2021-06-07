@@ -35,7 +35,18 @@
                                 <th>İşlem</th>
                             </tr>
                         </thead>
-
+                        <tfoot>
+                            <tr>
+                                <th>Oda No</th>
+                                <th>Kimlik/Pasaport No</th>
+                                <th>Adı</th>
+                                <th>Soyadı</th>
+                                <th>Telefon</th>
+                                <th>EMail</th>
+                                <th>Adres</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </tfoot>
                         <tbody>
                             @foreach (var item in Model)
                             {
@@ -44,7 +55,7 @@
                                     {
                                         if (room.ID == item.RoomId)
                                         {
-                                            @room.RoomNumber
+                                            <td>@room.RoomNumber</td>
                                         }
                                     }
                                     <td>@item.NationalIdentificationNumber</td>
