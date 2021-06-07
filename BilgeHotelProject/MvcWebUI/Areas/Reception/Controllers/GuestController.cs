@@ -39,10 +39,19 @@ namespace MvcWebUI.Areas.Reception.Controllers
         [HttpPost]
         public IActionResult AddGuest(Guest guest)
         {
+            guest.CheckIn = guest.CheckIn.AddHours(14);
+            guest.CheckOut = guest.CheckOut.AddHours(10);
             if (ModelState.IsValid)
             {
-                _guestService.Add(guest);
-                return RedirectToAction("Index");
+                var result = _guestService.Add(guest);
+                if (result.Success)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", result.Message);
+                }
             }
             return View(guest);
         }
@@ -61,8 +70,15 @@ namespace MvcWebUI.Areas.Reception.Controllers
         {
             if (ModelState.IsValid)
             {
-                _guestService.Update(guest);
-                return RedirectToAction("Index");
+                var result = _guestService.Update(guest);
+                if (result.Success)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", result.Message);
+                }
             }
             return View(guest);
         }
