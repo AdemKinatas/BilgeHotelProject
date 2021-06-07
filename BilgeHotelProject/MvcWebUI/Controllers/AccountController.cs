@@ -85,7 +85,15 @@ namespace MvcWebUI.Controllers
                         {
                             return RedirectToAction("Index", "Home", new { area = "Admin" });
                         }
-                        else
+                        else if(roles.Contains("Reception"))
+                        {
+                            return RedirectToAction("Index", "Home",new { area = "Reception"});
+                        }
+                        else if (roles.Contains("HumanResources"))
+                        {
+                            return RedirectToAction("Index", "Home", new { area = "humanresources" });
+                        }
+                        else 
                         {
                             return RedirectToAction("Index", "Home");
                         }

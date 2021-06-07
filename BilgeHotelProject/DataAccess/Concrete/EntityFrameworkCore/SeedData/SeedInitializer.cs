@@ -65,7 +65,7 @@ namespace DataAccess.Concrete.EntityFrameworkCore.SeedData
                 await userManager.AddToRoleAsync(user, "Reception");
             }
 
-            var hrUser = await userManager.FindByNameAsync("human resources");
+            var hrUser = await userManager.FindByNameAsync("humanresources");
             if (hrUser == null)
             {
                 AppUser user = new AppUser
@@ -86,9 +86,9 @@ namespace DataAccess.Concrete.EntityFrameworkCore.SeedData
                 AppUser user = new AppUser
                 {
                     UserName = "member",
-                    FirstName = "Ali",
-                    LastName = "Veli",
-                    Email = "ali@veli.com"
+                    FirstName = "Bilge",
+                    LastName = "Hotel",
+                    Email = "bilge@hotel.com"
                 };
 
                 await userManager.CreateAsync(user, "Test123+");
